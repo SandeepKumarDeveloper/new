@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "Netflix",
+        "Price": 899,
+        "Photo": "./Images/Netflix.jpg"
+    },
+    {
+        "Name": "Hotstar",
+        "Price": 499,
+        "Photo": "./Images/Hotstar.jpg"
+    },
+    {
+        "Name": "Aha",
+        "Price": 399,
+        "Photo": "./Images/AHA.jpeg"
+    }
+]

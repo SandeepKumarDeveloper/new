@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function verifyCard(){
+            var txtcard=document.getElementById("txtcard").value;
+            var pic=document.getElementById("pic");
+            if (txtcard.startsWith("Net")){
+                pic.src="../JavaScript/Images/Netflix.jpg";
+            }else if(txtcard.startsWith("Hot")){
+                pic.src="../JavaScript/Images/Hotstar.jpg";
+            }else if(txtcard.startsWith("AH")){
+                pic.src="../JavaScript/Images/AHA.jpeg";
+            }else{
+                pic.src="";
+                pic.alt="Invalid";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <h2>Verify Card</h2>
+    <div class="input-group">
+        <input type="text" id="txtcard" class="form-control" onkeyup="verifyCard()">
+        <span class="input-group-text">
+            <img width="80" height="50" id="pic">
+        </span>
+    </div>
+    
+</body>
+</html>

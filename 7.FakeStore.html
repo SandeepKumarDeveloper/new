@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function LoadProduct(id){
+            fetch(`http://fakestoreapi.com/products/${id}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                document.getElementById("img").src=data.image;
+                document.getElementById("title").innerHTML=data.title;
+                document.getElementById("price").innerHTML=data.price;
+            })
+        }
+        function bodyload(){
+            LoadProduct(1); 
+        }
+        var productId=1;
+        function NextClick(){
+            productId++;
+            LoadProduct(productId);
+        }
+        function PreviousClick(){
+            productId--;
+            LoadProduct(productId);
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div class="card m-4 p-2" style="width: 260px;">
+        <img id="img" height="180" class="card-img-top">
+        <div class="card-header" style="height: 160px;">
+            <p id="title"></p>
+        </div>
+        <div class="card-body">
+            <p id="price"></p>
+        </div>
+        <div class="card-footer">
+            <button onclick="PreviousClick()"><</button>
+            <button onclick="NextClick()">></button>
+        </div>
+    </div>
+    
+</body>
+</html>

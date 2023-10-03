@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function bodyload(){
+            fetch("./Data/1.Products.json")
+            .then (function(response){
+                return response.json();
+            })
+            .then(function(data){
+                for(var item of data)
+                {
+                    var tr=document.createElement("tr");
+                    var tdName=document.createElement("td");
+                    var tdPrice=document.createElement("td");
+                    var tdPhoto=document.createElement("td");
+
+                    tdName.innerHTML=item.Name;
+                    tdPrice.innerHTML=item.Price;
+
+                    var img=document.createElement("img");
+                    img.width="400";
+                    img.height="160";
+                    img.src=item.Photo;
+                    img.style.marginRight="60px";
+
+                    tdPhoto.appendChild(img);
+
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdPrice);
+                    tr.appendChild(tdPhoto);
+
+                    document.querySelector("tbody").appendChild(tr);
+                }
+            })
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <h2>App Details</h2>
+    <table>
+        <thead class="table table-bordered">
+            <tr>
+                <th class="w-50 pe-4">Name</th>
+                <th class="w-50 pe-4">Price</th>
+                <th class="w-50 M-4">Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
