@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dt{
+            margin-left: 18px;
+            margin-bottom: 12px;
+        }
+        #register{
+            margin-left:18px;
+        }
+        .invalid{
+            border: 1px solid red;
+            box-shadow: 2px 2px 2px red;
+        }
+        .valid{
+            border:1px solid green;
+            box-shadow: 2px 2px 2px green;
+        }
+    </style>
+    <script>
+        function clickRegister(){
+            var username=document.getElementById("username").value;
+            var usererror=document.getElementById("usererror");
+            if(username==""){
+                usererror.innerHTML="Please Enter Value".fontcolor("red").bold();    //By using String Formating
+                document.getElementById("username").className="invalid";             //Instead of Formating using ClassName
+            }else{
+                usererror.innerHTML="Verified".bold();
+                usererror.style.color="green";                                       //Instead of Formating and ClassName using Style Property
+                document.getElementById("username").className="valid";
+            }
+        }
+        function upperCase(){
+            var username=document.getElementById("username").value;
+            document.getElementById("username").value=username.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+    <div id="Container">
+        <div>
+            <dl>
+                <dt><input type="text" onkeyup="upperCase()" id="username"></dt>
+                <dd id="usererror"></dd>
+            </dl>
+        </div>
+        <div>
+            <button id="register" onclick="clickRegister()">Register</button>
+        </div>
+    
+    </div>
+</body>
+</html>
